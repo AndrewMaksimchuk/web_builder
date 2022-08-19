@@ -5,24 +5,11 @@
 
 void directory_create(char *dirname)
 {
-    int ret = mkdir(dirname, S_IRWXU);
-    if (ret == -1)
+    int status_code = mkdir(dirname, S_IRWXU);
+    if (status_code == -1)
     {
-        switch (errno)
-        {
-        case EACCES:
-            printf("the parent directory does not allow write\n");
-            exit(EXIT_FAILURE);
-        case EEXIST:
-            printf("pathname already exists\n");
-            exit(EXIT_FAILURE);
-        case ENAMETOOLONG:
-            printf("pathname is too long\n");
-            exit(EXIT_FAILURE);
-        default:
-            perror("mkdir");
-            exit(EXIT_FAILURE);
-        }
+        terrno(errno);
+        exit(EXIT_FAILURE);
     }
-    printf("Dist is: %d in %s\n", ret, dirname);
+    printf("Dist is: %d in %s\n", status_code, dirname);
 }

@@ -1,17 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
 
+// TODO: Change to correct write file .css, .js and .html
 void file_write()
 {
     int num;
     FILE *fptr;
 
-    // use appropriate location if you are using MacOS or Linux
     fptr = fopen("./program.txt", "w");
 
     if (fptr == NULL)
     {
-        printf("Error!");
-        exit(1);
+        terrno(errno);
+        exit(EXIT_FAILURE);
     }
 
     printf("Enter num: ");

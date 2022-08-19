@@ -1,4 +1,7 @@
-int find_string(char line[], char pattern[])
+#include "types.h"
+
+
+BOOLEAN find_string(char line[], char pattern[])
 {
     int i, j, k;
     for (i = 0; line[i] != '\0'; i++)
@@ -6,7 +9,7 @@ int find_string(char line[], char pattern[])
         for (j = i, k = 0; pattern[k] != '\0' && line[j] == pattern[k]; j++, k++)
             ;
         if (k > 0 && pattern[k] == '\0')
-            return 1;
+            return TRUE; // Found
     }
-    return 0;
+    return FALSE; // Not found
 }

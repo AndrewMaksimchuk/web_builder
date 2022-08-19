@@ -7,7 +7,6 @@ char *get_project_path(int argc, char *argv[])
 {
     if (argc > 1)
     {
-        // TODO: check if path from cli argument is exist
         DIR *dir = opendir(argv[1]);
         if (dir)
         {
