@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.tcc": "c",
-        "cmath": "c",
-        "stat.h": "c"
-    }
-}
